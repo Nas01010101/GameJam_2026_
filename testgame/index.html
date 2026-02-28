@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aura: Out of the Grey</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <div id="gameWrapper">
+
+    <!-- Canvas — the actual game world -->
+    <canvas id="gameCanvas"></canvas>
+
+    <!-- Overlay UI (rendered in DOM not canvas for easy styling) -->
+
+    <!-- Definition card — appears when near an NPC -->
+    <div id="definitionCard" class="ui-panel hidden">
+      <div id="defWord"></div>
+      <div id="defText"></div>
+      <div class="hint-key">Press <kbd>E</kbd> to collect</div>
+    </div>
+
+    <!-- Sentence puzzle — appears after collecting word -->
+    <div id="sentenceUI" class="ui-panel hidden">
+      <div id="sentenceText"></div>
+      <div id="wordChoices"></div>
+      <div id="hintText"></div>
+    </div>
+
+    <!-- Level complete banner -->
+    <div id="successBanner" class="hidden">
+      <div class="success-title">✨ Bravo ! ✨</div>
+      <div class="success-sub">La grisaille se dissipe…</div>
+      <button id="nextLevelBtn">Niveau suivant →</button>
+    </div>
+
+    <!-- HUD -->
+    <div id="hud">
+      <span id="levelLabel">Niveau 1 — La Classe</span>
+      <span id="controlHints">WASD / Flèches : Déplacer &nbsp;|&nbsp; E : Parler &nbsp;|&nbsp; ESC : Pause</span>
+    </div>
+
+    <!-- Pause menu -->
+    <div id="pauseOverlay" class="hidden">
+      <div class="ui-panel" id="pausePanel">
+        <div class="pause-title">Pause</div>
+        <button id="resumeBtn">Reprendre</button>
+        <button id="restartBtn">Recommencer le niveau</button>
+      </div>
+    </div>
+
+    <!-- Start screen -->
+    <div id="startScreen">
+      <div class="start-title">Aura<span class="grey-text">: Out of the Grey</span></div>
+      <div class="start-sub" style="margin-top:0;">Un jeu de mots émotionnels en français.</div>
+
+      <div id="difficultySelector" class="difficulty-options">
+        <label>Choisis ta difficulté :</label>
+        <div class="diff-buttons">
+          <button class="diff-btn" data-diff="facile">Facile<span>Mots de base</span></button>
+          <button class="diff-btn selected" data-diff="moyen">Moyen<span>Vocabulaire courant</span></button>
+          <button class="diff-btn" data-diff="difficile">Difficile<span>Nuance & Symétrie</span></button>
+        </div>
+      </div>
+
+      <button id="startBtn">▶ Commencer</button>
+      <div class="start-controls">WASD / Flèches : Déplacer &nbsp;·&nbsp; E : Parler</div>
+    </div>
+
+  </div>
+
+  <script src="js/levels.js"></script>
+  <script src="js/game.js"></script>
+</body>
+
+</html>
