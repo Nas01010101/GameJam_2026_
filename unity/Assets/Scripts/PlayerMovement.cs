@@ -12,6 +12,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
 
+    private string carriedWord = "";
+    public Transform wordHolder; // empty object above player
+    private GameObject currentWordObject;
+
     void Update()
     {
         //horizontal = Input.GetAxisRaw("Horizontal");
@@ -65,5 +69,34 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y * 0.5f);
         }
+    }
+
+
+    public void PickUpWord(string word, GameObject wordObject)
+    {
+        if (carriedWord == "")
+        {
+            carriedWord = word;
+            currentWordObject = wordObject;
+
+            wordObject.transform.SetParent(wordHolder);
+            wordObject.transform.localPosition = Vector3.zero;
+        }
+    }
+
+    public string GetWord()
+    {
+        return carriedWord;
+    }
+
+    public void ClearWord()
+    {
+        carriedWord = "";
+        currentWordObject = null;
+    }
+
+    public GameObject GetWordObject()
+    {
+        return currentWordObject;
     }
 }

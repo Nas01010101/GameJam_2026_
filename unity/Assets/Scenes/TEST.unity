@@ -523,6 +523,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 1
+  wordHolder: {fileID: 0}
 --- !u!61 &537207085
 BoxCollider2D:
   m_ObjectHideFlags: 0

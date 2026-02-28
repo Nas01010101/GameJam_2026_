@@ -6,10 +6,14 @@ public class WordComponent : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("HIT");
+
+
         if (other.CompareTag("Player"))
         {
-           // PlayerController player = other.GetComponent<PlayerController>();
-            //player.PickUpWord(word, gameObject);
+            Debug.Log("word hit player");
+            PlayerMovement player = other.GetComponent<PlayerMovement>();
+            player.PickUpWord(word, gameObject);
         }
     }
 }
