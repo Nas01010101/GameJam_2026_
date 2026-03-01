@@ -4,6 +4,15 @@ using System;
 
 public class GameManager : MonoBehaviour
 {
+
+
+
+
+    [Header("Prefabs")]
+    public GameObject stonePrefab;
+
+
+
     public static GameManager Instance { get; private set; }
 
     // Contains the words the player has collected so far (e.g., "joie", "triste")
@@ -40,3 +49,9 @@ public class GameManager : MonoBehaviour
         return unlockedWords.Contains(word);
     }
 }
+
+
+
+
+
+

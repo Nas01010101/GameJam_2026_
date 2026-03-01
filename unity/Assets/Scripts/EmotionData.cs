@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [System.Serializable]
-public class EmotionData
+public class EmotionData : MonoBehaviour
 {
     public string emotionName;
     public Sprite characterSprite;
